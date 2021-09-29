@@ -4,10 +4,10 @@ if(isset($_GET["statoLed"])) {
    $stato = $_GET["statoLed"]; 
    $times = $_GET["timestamp"];
 
-   $servername = "localhost";
-   $username = "root";
-   $password = "pippo";
-   $dbname = "testsensore";
+   $servername = "";
+   $username = "";
+   $password = "";
+   $dbname = "";
 
    // Create connection
    $conn = new mysqli($servername, $username, $password, $dbname);

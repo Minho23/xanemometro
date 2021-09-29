@@ -9,10 +9,10 @@
 
 <?php
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "pippo";
-    $dbname = "testsensore";
+    $servername = "";
+    $username = "";
+    $password = "";
+    $dbname = "";
   
     $conn = new mysqli($servername, $username, $password, $dbname);
 

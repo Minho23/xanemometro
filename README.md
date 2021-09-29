@@ -1,2 +1,10 @@
 # xanemometro
-Anemometro che tramite arduino uno e relativa shield Wifi invia dati in locale ad un server che scarica in un databse e mostra in html.
+Anemometro che tramite Arduino Uno e Wifi Shield invia dati in locale ad un server che scarica in un database MySql e mostra in html.
+
+-[] disabilitare firewall;
+-[] scaricare e installare xampp;
+-[] attivare apache e mysql;
+-[] creare database e tabella;
+-[] password per databse;
+-[] estensione per aggiornare pagina web;
+

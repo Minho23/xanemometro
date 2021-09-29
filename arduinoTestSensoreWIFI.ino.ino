@@ -2,13 +2,12 @@
 #include <WiFi.h>
 #include <WiFiUdp.h>
 
-char ssid[] = "low_unifi";     // your network SSID (name)
-char pass[] = "vuolsicosicola";   // your network password
+char ssid[] = "";     // your network SSID (name)
+char pass[] = "";   // your network password
 
 //byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 boolean acceso = false;
-char server[]="192.168.0.246"; // indirizzo ip server locale
-//IPAddress ip(192,168,0,240); // indirizzo ip arduino
+char server[]=""; // indirizzo ip server locale
 WiFiClient client;
 int status = WL_IDLE_STATUS; 
 
@@ -61,9 +60,7 @@ void setup() {
     Serial.print("Attempting to connect to SSID: ");
 
     Serial.println(ssid);
-
-    // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
-    //WiFi.config(ip);
+    
     status = WiFi.begin(ssid, pass);
 
     // wait 10 seconds for connection:
@@ -123,7 +120,7 @@ void creaUrl(String sTime){
     Serial.println("connected");
     
     
-    strURL = "GET /test.php?statoLed=";
+    strURL = "GET /dbManage.php?statoLed=";
     if (acceso){
       strURL += "'acceso'";
     }
@@ -133,11 +130,9 @@ void creaUrl(String sTime){
     strURL += "&timestamp='";
     strURL += sTime;
     strURL += "'";
-    //strURL += " HTTP/1.1";
-    //invio la richiesta al server
     client.println(strURL);
     Serial.println(strURL);
-    client.println("Host: 192.168.0.246");
+    client.println("Host: ");
     client.println("Connection: close");
     client.println();
     
@@ -188,7 +183,7 @@ String getOra(){
 
     // print the hour, minute and second:
     //Serial.println("The UTC time is ");       // UTC is the time at Greenwich Meridian (GMT)
-    unsigned long ore = ((epoch  % 86400L) / 3600)+2;// print the hour (86400 equals secs per day)
+    unsigned long ore = ((epoch  % 86400L) / 3600)+2;// print the hour (86400 equals secs per day) +2 per utc+2
     String sOre = String(ore);
     
     sOre = sOre + ":";
